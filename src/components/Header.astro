@@ -1,0 +1,62 @@
+---
+import Logo from "../assets/logo.svg";
+---
+
+<header class="p-4 px-16 max-w-6xl mx-auto">
+  <nav class="">
+    <ul
+      class="text-text flex font-monospace font-bold text-base flex-col md:flex-row justify-between items-center p-4 bg-secondary"
+    >
+      <li class="group relative pb-1">
+        <a href="#about-me">Sobre mí</a>
+        <span
+          class="absolute bottom-0 left-0 w-0 h-1 rounded-xs bg-accent group-hover:w-full transition-all ease-in-out duration-300"
+        ></span>
+      </li>
+      <div class="w-2 h-2 bg-titles rounded-full"></div>
+      <li class="group relative pb-1">
+        <a href="#proyects">Proyectos</a><span
+          class="absolute bottom-0 left-0 w-0 h-1 rounded-xs bg-accent group-hover:w-full transition-all ease-in-out duration-300"
+        ></span>
+      </li>
+      <div class="w-2 h-2 bg-titles rounded-full"></div>
+      <li class="group relative pb-1">
+        <a href="#skills">Habilidades</a><span
+          class="absolute bottom-0 left-0 w-0 h-1 rounded-xs bg-accent group-hover:w-full transition-all ease-in-out duration-300"
+        ></span>
+      </li>
+      <div class="w-2 h-2 bg-titles rounded-full"></div>
+      <li class="group:">
+        <a href="#principal" class="flex flex-col gap-0.5 items-center justify-center">
+          <img src={Logo.src} alt="Logo KENT" class="logo" />
+          <span class="text-center font-mono">KENT</span>
+        </a>
+      </li>
+      <div class="w-2 h-2 bg-titles rounded-full"></div>
+      <li class="group relative pb-1">
+        <a href="#experience">Experiencia</a><span
+          class="absolute bottom-0 left-0 w-0 h-1 rounded-xs bg-accent group-hover:w-full transition-all ease-in-out duration-300"
+        ></span>
+      </li>
+      <div class="w-2 h-2 bg-titles rounded-full"></div>
+      <li class="group relative pb-1">
+        <a href="#education">Formación</a><span
+          class="absolute bottom-0 left-0 w-0 h-1 rounded-xs bg-accent group-hover:w-full transition-all ease-in-out duration-300"
+        ></span>
+      </li>
+      <div class="w-2 h-2 bg-titles rounded-full"></div>
+      <li class="group relative pb-1">
+        <a href="#contact">Contáctame</a><span
+          class="absolute bottom-0 left-0 w-0 h-1 rounded-xs bg-accent group-hover:w-full transition-all ease-in-out duration-300"
+        ></span>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+</style>
