@@ -1,0 +1,189 @@
+<script>
+  import gsap from "gsap";
+
+  const svg = document.querySelector(".circuit-lines");
+  const svgWidth = 1000;
+  const svgHeight = 1000;
+  const numLines = 20;
+  const maxSegmentLength = 150;
+  const minSegments = 3;
+  const maxSegments = 6;
+
+  // Función para crear un punto aleatorio dentro del SVG
+  function getRandomPoint() {
+    return {
+      x: Math.random() * svgWidth,
+      y: Math.random() * svgHeight,
+    };
+  }
+
+  // Función para dibujar una línea de circuito con múltiples segmentos
+  function drawCircuitLine() {
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.classList.add("circuit-line");
+    let d = "";
+    let currentPoint = getRandomPoint();
+    d += `M${currentPoint.x},${currentPoint.y}`;
+
+    const numLineSegments = Math.floor(Math.random() * (maxSegments - minSegments + 1)) + minSegments;
+
+    for (let i = 0; i < numLineSegments; i++) {
+      let nextPoint = { ...currentPoint };
+
+      // segmento horizontal o vertical
+      if (Math.random() < 0.5) {
+        nextPoint.x += Math.random() * maxSegmentLength * 2 - maxSegmentLength;
+        d += ` H${nextPoint.x}`;
+        nextPoint.y += Math.random() * maxSegmentLength * 2 - maxSegmentLength;
+        d += ` V${nextPoint.y}`;
+      } else {
+        nextPoint.y += Math.random() * maxSegmentLength * 2 - maxSegmentLength;
+        d += ` V${nextPoint.y}`;
+        nextPoint.x += Math.random() * maxSegmentLength * 2 - maxSegmentLength;
+        d += ` H${nextPoint.x}`;
+      }
+
+      // Asegurarse de que los puntos no se salgan del SVG
+      nextPoint.x = Math.max(0, Math.min(svgWidth, nextPoint.x));
+      nextPoint.y = Math.max(0, Math.min(svgHeight, nextPoint.y));
+
+      currentPoint = nextPoint;
+    }
+
+    path.setAttribute("d", d);
+    svg.appendChild(path);
+
+    return path;
+  }
+
+  function initCircuitAnimation() {
+    const allLines = [];
+    for (let i = 0; i < numLines; i++) {
+      allLines.push(drawCircuitLine());
+    }
+
+    allLines.forEach((line) => {
+      // Clonar la línea
+      const lightTrail = line.cloneNode(true) as SVGPathElement;
+      lightTrail.classList.remove("circuit-line");
+      lightTrail.classList.add("light-trail");
+      svg.appendChild(lightTrail);
+
+      const length = lightTrail.getTotalLength();
+
+      gsap.set(lightTrail, {
+        strokeDasharray: length,
+        strokeDashoffset: length,
+      });
+
+      gsap.to(lightTrail, {
+        strokeDashoffset: -length,
+        duration: gsap.utils.random(10, 15),
+        ease: "none",
+        repeat: -1,
+        delay: gsap.utils.random(0, 5),
+      });
+
+      gsap.to(lightTrail, {
+        opacity: gsap.utils.random(0.5, 0.8),
+        duration: gsap.utils.random(3, 8),
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: gsap.utils.random(0, 3),
+      });
+    });
+
+    gsap.to(allLines, {
+      opacity: gsap.utils.random(0.1, 0.3),
+      duration: gsap.utils.random(8, 15),
+      ease: "power1.inOut",
+      yoyo: true,
+      repeat: -1,
+      stagger: 0.5,
+      delay: gsap.utils.random(0, 5),
+    });
+  }
+
+  initCircuitAnimation();
+</script>
+
+<div class="background-container">
+  <svg class="circuit-lines" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice"></svg>
+</div>
+
+<div class="content">
+  <slot />
+</div>
+
+<style is:global>
+  :root {
+    /* Variables de color principales */
+    --primary-hue: 358;
+    --primary-saturation: 97%;
+    --primary-lightness: 31%;
+
+    /* Variables del fondo */
+    --bg-primary: #1a1d23;
+    --bg-secondary: #111317;
+
+    /* Variables de las líneas del circuito */
+    --circuit-line-opacity: 0.2;
+    --circuit-line-width: 2px;
+
+    /* Variables del rastro de luz */
+    --light-trail-width: 4px;
+    --light-trail-glow: 5px;
+    --light-trail-glow-opacity: 0.7;
+  }
+
+  .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+  }
+
+  .circuit-lines {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Estilo para las líneas del circuito (será el color base opaco) */
+  .circuit-line {
+    stroke: hsl(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), var(--circuit-line-opacity));
+    stroke-width: var(--circuit-line-width);
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Estilo para el "rastro de luz" animado */
+  .light-trail {
+    stroke: hsl(var(--primary-hue), var(--primary-saturation), var(--primary-lightness));
+    stroke-width: var(--light-trail-width);
+    fill: none;
+    filter: drop-shadow(
+      0 0 var(--light-trail-glow)
+        hsla(var(--primary-hue), var(--primary-saturation), var(--primary-lightness), var(--light-trail-glow-opacity))
+    );
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+  }
+</style>

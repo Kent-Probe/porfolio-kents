@@ -1,19 +1,27 @@
 ---
-import person from "../assets/PERSON.webp";
+import { ArrowRight } from "@lucide/astro";
+import logo from "../assets/logo.svg";
 ---
 
-<section class="py-32 flex flex-col md:flex-row items-center justify-around p-8 text-text gap-8">
-  <div>
-    <h1 class="text-titles font-mono text-6xl font-bold flex flex-col gap-2">
-      <span class="flex flex-row"> ¡Hola! <div class="animate-wiggle w-fit">👋🏼</div> </span>
-      <span> Soy Kevin </span>
-    </h1>
-    <p class="prose prose-gray prose-lg font-sans font-extrabold w-[400px]">
-      Estoy trabajando en mi portafolio personal, pronto estará disponible.
-      <br />
-    </p>
+<section class="text-red-500 flex flex-col items-center justify-center h-full space-y-10">
+  <div class="flex justify-center">
+    <img width="100" height="100" src={logo.src} alt="Logo" />
+  </div>
+  <div class="">
+    <h1 class="font-extrabold text-7xl tracking-widest text-shadow-lg/30">KENTS</h1>
   </div>
   <div>
-    <img width="400" src={person.src} alt="It is a person development (in pixel art)" />
+    <p class="text-lg text-shadow-lg">Soy Kevin Santiago Hernández Escobar.</p>
+    <p class="text-lg text-shadow-lg">Ingeniero de sistemas y Desarrollador de software.</p>
+  </div>
+  <div class="bg-primary/20 backdrop-blur-md p-10 rounded-lg">
+    <p class="text-lg text-shadow-lg opacity-60">Soy lo que necesitabas para solucionar tus problemas.</p>
+    <a href="#contact">
+      Contactarme
+      <ArrowRight color="red" />
+    </a>
+  </div>
+  <div>
+    <a href="#projects"> Explorar </a>
   </div>
 </section>
