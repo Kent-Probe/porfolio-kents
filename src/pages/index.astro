@@ -1,11 +1,47 @@
 ---
 import Background from "../components/background.astro";
 import Principal from "../components/Principal.astro";
+import Proyects from "../components/proyects.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <Background>
-    <Principal />
-  </Background>
+  <section>
+    <Background>
+      <Principal />
+    </Background>
+  </section>
+  <section class="section-content" id="about"></section>
+  <section class="section-content" id="skills"></section>
+  <section class="section-content" id="proyects">
+    <Proyects />
+  </section>
+  <section class="section-content" id="education"></section>
+  <section class="section-content" id="contact"></section>
 </Layout>
+
+<style is:global>
+  section {
+    /* scroll-snap-align: start;
+    scroll-snap-stop: always; */
+
+    width: 100vw;
+    min-height: 600px;
+  }
+
+  .section-content {
+    padding: 100px;
+  }
+
+  body {
+    /* scroll-snap-type: y mandatory; */
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
+  #about,
+  #proyects,
+  #contact {
+    background-color: var(--bg-primary);
+  }
+</style>

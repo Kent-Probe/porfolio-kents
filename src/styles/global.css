@@ -9,6 +9,8 @@
   /* #6B0504; #E6AF2E */
   /* Paleta de colores principal */
   --color-primary: oklch(0.2689 0.0468 261.28); /* Fondo principal (#19263D) */
+  --color-bg-primary: #1a1d23;
+
   --color-accent: oklch(0.5362 0.2082 22.24); /* Resaltado (#E63946) */
   --color-text: oklch(0.9651 0.0184 137.8); /* Texto principal (#F1FAEE) */
   --color-titles: oklch(0.8542 0.0517 199.29); /* Títulos (#A8DADC) */
