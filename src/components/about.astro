@@ -1,0 +1,117 @@
+---
+import element from "../assets/element.svg";
+import { hobbies } from "../content/about/hobbies.ts";
+
+const dateBorn = new Date("2003-02-03");
+const currentDate = new Date();
+const age = currentDate.getFullYear() - dateBorn.getFullYear();
+---
+
+<div class="max-w-[1000px] m-auto text-white space-y-8 flex flex-col items-start justify-center gap-5">
+  <div class="w-full">
+    <h2 class="relative text-4xl font-extrabold text-center w-full mb-4">
+      Acerca de mi
+      <span class="absolute inset-y-full inset-x-[calc(50%-150px)] w-[300px] h-[40px]">
+        <img src={element.src} alt="Element decorativo" class="w-full h-full object-cover" />
+      </span>
+    </h2>
+  </div>
+  <div>
+    <p>
+      <span class="highlight">Hola soy Kevin</span>, un desarrollador web con experiencia en la creación de aplicaciones
+      modernas y responsivas. Dedicado a la mejora continua y a la adopción de nuevas tecnologías. Soy un chico
+      apasionado por la tecnología y siempre estoy buscando aprender más. Soy responsable y comprometido con mi trabajo,
+      y me esfuerzo por entregar resultados de alta calidad.
+    </p>
+  </div>
+  <div class="w-full flex flex-col md:flex-row gap-8 md:gap-4 justify-between">
+    <div class="flex-1">
+      <h3 class="text-xl font-bold mb-4">Información personal</h3>
+      <ul class="space-y-2 data-info">
+        <li><span class="label">Nombre</span> <span class="value">Kevin Santiago</span></li>
+        <li><span class="label">Apellido</span> <span class="value">Hernández Escobar</span></li>
+        <li><span class="label">Edad</span> <span class="value">{age}</span></li>
+        <li><span class="label">Ubicación</span> <span class="value">Bogotá D.C.</span></li>
+        <li><span class="label">Email</span> <span class="value">kevinshe01@gmail.com</span></li>
+        <li><span class="label">Teléfono</span> <span class="value">+57 322 702 0440</span></li>
+        <li>
+          <span class="label">Estatus laboral:</span>
+          <span class="value w-fit !text-white !uppercase tracking-widest px-2 py-px rounded-sm bg-accent/80">
+            Disponible
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="flex-1">
+      <h3 class="text-xl font-bold mb-4">Mis intereses</h3>
+      <ul class="space-y-2 data-hobbies">
+        {
+          hobbies.map((hobby) => (
+            <li>
+              <span class="label">{hobby.icon}</span>
+              <span class="value">{hobby.name}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  .highlight {
+    color: #ca1330;
+    font-weight: bold;
+  }
+
+  .data-info {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 10px 0;
+    width: 400px;
+
+    & > li {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: subgrid;
+
+      & > .label {
+        font-weight: bold;
+        color: #ca1330;
+      }
+    }
+  }
+
+  .data-hobbies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    width: 400px;
+    & > li {
+      width: 100px;
+      height: 100px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0 10px;
+
+      padding: 5px 10px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background-color: #222;
+      min-width: 100px;
+      text-align: center;
+      background-color: #222;
+
+      & > .label {
+        font-size: 1.5rem;
+      }
+
+      & > .value {
+        align-self: center;
+      }
+    }
+  }
+</style>
