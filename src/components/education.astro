@@ -1,0 +1,27 @@
+---
+// TODO: Add educations and certificates content by md files
+// TODO: Add filter for educations and certificates (official and non-official) styles
+---
+
+<div class="max-w-[1000px] m-auto flex flex-col gap-10">
+  <div class="flex flex-col md:flex-row gap-10">
+    <div class="h-[400px] bg-bg-primary flex-1">estudios</div>
+    <div class="h-[400px] bg-bg-primary flex-1">certificados</div>
+  </div>
+  <div class="w-full bg-bg-primary rounded-lg">
+    <div class="flex gap-10">
+      <div>
+        <input type="radio" id="all" name="fav_language" value="all" />
+        <label for="all">Todos</label><br />
+      </div>
+      <div>
+        <input type="radio" id="official" name="fav_language" value="official" />
+        <label for="official">Estudios officiales</label><br />
+      </div>
+      <div>
+        <input type="radio" id="unofficial" name="fav_language" value="unofficial" />
+        <label for="unofficial">Estudios no oficiales</label>
+      </div>
+    </div>
+  </div>
+</div>

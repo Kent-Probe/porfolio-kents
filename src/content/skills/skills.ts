@@ -1,4 +1,4 @@
-import LogoDocker from "../../assets/logos/Docker_logo.svg";
+import LogoDocker from "../../assets/logos/Docker_Logo.svg";
 import LogoGit from "../../assets/logos/Git-Icon-1788C.svg";
 import LogoGitHub from "../../assets/logos/github-mark.svg";
 import LogoJava from "../../assets/logos/Java_logo.svg";
