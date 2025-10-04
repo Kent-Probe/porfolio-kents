@@ -1,0 +1,114 @@
+---
+import { Github, Linkedin, MailIcon, PhoneCall } from "@lucide/astro";
+---
+
+<div class="max-w-[1500px] m-auto flex flex-col md:flex-row gap-10">
+  <div
+    class="flex flex-col gap-5 md:w-1/2 justify-center items-start bg-bg-primary/50 p-10 rounded-2xl shadow-neon backdrop-blur-md"
+  >
+    <div>
+      <h2 class="md:text-6xl text-2xl font-bold">
+        ¿Tienes alguna idea? o <span class="text-accent">quieres ponerte en contacto conmigo?</span>
+      </h2>
+    </div>
+
+    <div class="flex md:flex-row gap-3 flex-col w-full mt-4">
+      <a
+        class="flex flex-row md:gap-4 gap-2 p-2 bg-accent border rounded-md border-bg-primary flex-1"
+        href="mailto:kevinshe01@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <MailIcon />
+        <div class="">
+          <p>Enviar un correo a:</p>
+          <p>kevinshe01@gmail.com</p>
+        </div>
+      </a>
+
+      <a
+        class="flex flex-row md:gap-4 gap-2 p-2 bg-accent border rounded-md border-bg-primary flex-1"
+        href="https://wa.me/+573227020440"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <PhoneCall />
+        <div class="">
+          <p>WhatsApp/número:</p>
+          <p>+57 322 7020440</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="mt-6">
+      <p class="text-sm text-gray-300">Estaré encantado de responder cualquier pregunta o inquietud que tengas.</p>
+      <p class="text-sm text-gray-300">Puedes encontrarme en la red como: Kevin, Kents, Kent_Probe, Kent_Voyager.</p>
+      <p class="text-sm text-red-300">O contactarme a través de mis redes sociales:</p>
+      <ul class="data-socials flex flex-row gap-4 mt-6">
+        <li>
+          <a href="https://www.linkedin.com/in/kevin-she/">
+            <Linkedin />
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/kent_probe">
+            <Github />
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <form action="">
+      <div>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div>
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .data-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    width: 400px;
+    & > li {
+      width: 100px;
+      height: 100px;
+
+      padding: 5px 10px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background-color: #222;
+      min-width: 100px;
+      text-align: center;
+      background-color: #222;
+
+      & > a {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        font-size: 1rem;
+      }
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import About from "../components/about.astro";
 import Background from "../components/background.astro";
+import Contact from "../components/contact.astro";
 import Education from "../components/education.astro";
 import Principal from "../components/Principal.astro";
 import Proyects from "../components/proyects.astro";
@@ -26,10 +27,26 @@ import Layout from "../layouts/Layout.astro";
   <section class="section-content" id="education">
     <Education />
   </section>
-  <section class="section-content" id="contact"></section>
+  <section class="section-content" id="contact">
+    <Contact />
+  </section>
+  <section class="section-footer" id="footer"></section>
 </Layout>
 
 <style is:global>
+  .contact-section {
+    background: rgba(26, 29, 35, 0.8);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    Crear hueco circular
+    mask: radial-gradient(circle at center, transparent 250px, black 270px);
+    -webkit-mask: radial-gradient(circle at center, transparent 250px, black 270px);
+  }
+
   section {
     /* scroll-snap-align: start;
     scroll-snap-stop: always; */
@@ -49,8 +66,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   #about,
-  #proyects,
-  #contact {
+  #proyects{
     background-color: var(--bg-primary);
   }
 </style>
