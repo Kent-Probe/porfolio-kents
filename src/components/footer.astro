@@ -1,0 +1,16 @@
+---
+import person from "../assets/PERSON.webp";
+import logo from "../assets/logo.svg";
+---
+
+<div class="bg-bg-primary text-white p-5 px-10 flex items-center justify-around flex-warp">
+  <div class="flex flex-col gap-4 items-center justify-center">
+    <p>&copy; {new Date().getFullYear()} Kevin Santiago Hernández Escobar. ❤.</p>
+  </div>
+  <div class="ml-auto flex gap-4 items-center">
+    <img src={logo.src} width="50" height="50" alt="Logo" />
+    <a href="https://github.com/Kent-Probe/porfolio-kents" target="_blank" rel="noopener noreferrer">
+      <img src={person.src} width="50" height="50" alt="Logo" />
+    </a>
+  </div>
+</div>
