@@ -12,7 +12,7 @@ const age = currentDate.getFullYear() - dateBorn.getFullYear();
     <h2 class="relative text-4xl font-extrabold text-center w-full mb-4">
       Acerca de mi
       <span class="absolute inset-y-full inset-x-[calc(50%-150px)] w-[300px] h-[40px]">
-        <img src={element.src} alt="Element decorativo" class="w-full h-full object-cover" />
+        <img lazy-loaded src={element.src} alt="Elemento decorativo" class="w-full h-full object-cover" />
       </span>
     </h2>
   </div>

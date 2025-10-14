@@ -9,19 +9,113 @@
     <div class="h-[400px] bg-bg-primary flex-1">certificados</div>
   </div>
   <div class="w-full bg-bg-primary rounded-lg">
-    <div class="flex gap-10">
-      <div>
-        <input type="radio" id="all" name="fav_language" value="all" />
-        <label for="all">Todos</label><br />
-      </div>
-      <div>
-        <input type="radio" id="official" name="fav_language" value="official" />
-        <label for="official">Estudios officiales</label><br />
-      </div>
-      <div>
-        <input type="radio" id="unofficial" name="fav_language" value="unofficial" />
-        <label for="unofficial">Estudios no oficiales</label>
-      </div>
+    <div class="glass-radio-group">
+      <input type="radio" name="plan" id="glass-silver" checked="" />
+      <label for="glass-silver">Todos</label>
+
+      <input type="radio" name="plan" id="glass-gold" />
+      <label for="glass-gold">Estudios officiales</label>
+
+      <input type="radio" name="plan" id="glass-platinum" />
+      <label for="glass-platinum">Estudios no oficiales</label>
+
+      <div class="glass-glider"></div>
     </div>
   </div>
 </div>
+<!-- <div class="flex gap-10">
+  <div>
+    <input type="radio" id="all" name="fav_language" value="all" />
+    <label for="all">Todos</label><br />
+  </div>
+  <div>
+    <input type="radio" id="official" name="fav_language" value="official" />
+    <label for="official">Estudios officiales</label><br />
+  </div>
+  <div>
+    <input type="radio" id="unofficial" name="fav_language" value="unofficial" />
+    <label for="unofficial">Estudios no oficiales</label>
+  </div>
+</div> -->
+
+<style>
+  /* From Uiverse.io by chase2k25 */
+  .glass-radio-group {
+    --text: #e5e5e5;
+
+    display: flex;
+    position: relative;
+    background: var(--color-bg-primary);
+    border-radius: 1rem;
+    backdrop-filter: blur(12px);
+    /* box-shadow:
+      inset 1px 1px 4px rgba(255, 255, 255, 0.2),
+      inset -1px -1px 6px rgba(0, 0, 0, 0.3),
+      0 4px 12px rgba(0, 0, 0, 0.15); */
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .glass-radio-group input {
+    display: none;
+  }
+
+  .glass-radio-group label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    font-size: 14px;
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: var(--color-text);
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .glass-radio-group label:hover {
+    color: white;
+  }
+
+  .glass-radio-group input:checked + label {
+    color: #fff;
+  }
+
+  .glass-glider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: calc(100% / 3);
+    border-radius: 1rem;
+    z-index: 1;
+    transition:
+      transform 0.5s cubic-bezier(0.37, 1.95, 0.66, 0.56),
+      background 0.4s ease-in-out,
+      box-shadow 0.4s ease-in-out;
+  }
+
+  /* Silver */
+  #glass-silver:checked ~ .glass-glider {
+    transform: translateX(0%);
+    background: linear-gradient(135deg, var(--color-accent-50), var(--color-accent));
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Gold */
+  #glass-gold:checked ~ .glass-glider {
+    transform: translateX(100%);
+    background: linear-gradient(135deg, var(--color-accent-50), var(--color-accent-2));
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Platinum */
+  #glass-platinum:checked ~ .glass-glider {
+    transform: translateX(200%);
+    background: linear-gradient(135deg, var(--color-accent-50), var(--color-accent-3));
+    box-shadow: var(--shadow-glass);
+  }
+</style>

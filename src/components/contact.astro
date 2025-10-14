@@ -65,18 +65,30 @@ import { Github, Linkedin, MailIcon, PhoneCall } from "@lucide/astro";
     <form action="" class="flex flex-col gap-5 justify-center items-start w-full">
       <div class="flex w-full flex-col">
         <label class="block uppercase tracking-wide text-accent text-xs font-bold mb-2" for="name">Nombre:</label>
-        <input class="w-full bg-bg-secondary/80 p-2 rounded-md" type="text" id="name" name="name" required />
+        <input
+          class="w-full bg-bg-secondary/50 p-2 rounded-md focus-within:outline-2 focus-within:outline-accent focus-within:shadow-glass focus-within:bg-bg-secondary"
+          type="text"
+          id="name"
+          name="name"
+          required
+        />
       </div>
       <div class="flex w-full flex-col">
         <label class="block uppercase tracking-wide text-accent text-xs font-bold mb-2" for="email"
           >Correo electrónico:</label
         >
-        <input class="w-full bg-bg-secondary/80 p-2 rounded-md" type="email" id="email" name="email" required />
+        <input
+          class="w-full bg-bg-secondary/50 p-2 rounded-md focus-within:outline-2 focus-within:outline-accent focus-within:shadow-glass focus-within:bg-bg-secondary"
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
       </div>
       <div class="flex w-full flex-col">
         <label class="block uppercase tracking-wide text-accent text-xs font-bold mb-2" for="message">Mensaje:</label>
         <textarea
-          class="w-full md:h-52 h-auto bg-bg-secondary/80 p-2 rounded-md resize-none"
+          class="w-full md:h-52 h-auto bg-bg-secondary/50 p-2 rounded-md resize-none focus-within:outline-2 focus-within:outline-accent focus-within:shadow-glass focus-within:bg-bg-secondary"
           id="message"
           name="message"
           rows="4"

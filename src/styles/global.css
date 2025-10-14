@@ -10,13 +10,21 @@
     0 0 5px var(--color-accent), 0 0 10px var(--color-accent),
     0 0 20px var(--color-accent), 0 0 40px var(--color-accent);
 
+  --shadow-glass:
+    0 0 18px var(--color-accent-50), 0 0 10px var(--color-accent-2-40) inset;
+
   /* #6B0504; #E6AF2E */
   /* Paleta de colores principal */
   --color-primary: oklch(0.2689 0.0468 261.28); /* Fondo principal (#19263D) */
   --color-bg-primary: #1a1d23;
   --color-bg-secondary: #111317;
 
+  --color-accent-50: oklch(0.5362 0.2082 22.24 / 50%);
+  --color-accent-2-40: oklch(0.5362 0.82 22.24 / 40%);
+
+  --color-accent-3: oklch(0.4162 0.1675 22.24); /* Resaltado (#E63946) */
   --color-accent: oklch(0.5362 0.2082 22.24); /* Resaltado (#E63946) */
+  --color-accent-2: oklch(0.5362 0.82 22.24);
   --color-text: oklch(0.9651 0.0184 137.8); /* Texto principal (#F1FAEE) */
   --color-titles: oklch(0.8542 0.0517 199.29); /* Títulos (#A8DADC) */
   --color-emphasis: oklch(0.873 0.1396 93.54); /* Énfasis (#F4D35E) */
