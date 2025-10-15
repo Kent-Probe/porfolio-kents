@@ -5,6 +5,11 @@
 // TODO: Create engine search for the proyects
 
 import { SearchIcon } from "@lucide/astro";
+import { getCollection } from "astro:content";
+
+const proyects = await getCollection("proyects");
+
+console.log(proyects);
 ---
 
 <div class="max-w-[1000px] m-auto">
