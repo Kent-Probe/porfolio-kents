@@ -1,11 +1,11 @@
 ---
 title: Samicel
 author: Kevin Santiago Hernández
-img: img_samicel.webp
-description: Sistema integral de gestión de inventario y control comercial desarrollado en 2024 para Samicel, empresa especializada en accesorios tecnológicos. Esta solución aborda los desafíos específicos de control de stock y administración comercial, proporcionando seguimiento detallado de múltiples locales, gestión de bodegas, control de ventas, sistema de abonos y administración de gastos operativos.
+img: PERSON.webp
+description: Esta solución aborda los desafíos específicos de control de stock y administración comercial, proporcionando seguimiento detallado de múltiples locales, gestión de bodegas, control de ventas, sistema de abonos y administración de gastos operativos.
 link:
-  page: no disponible
-  repo: no disponible
+  page:
+  repo:
 technologies:
   - React
   - Redux

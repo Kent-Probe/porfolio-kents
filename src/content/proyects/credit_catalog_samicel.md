@@ -1,8 +1,8 @@
 ---
 title: Catálogo de Crédito Samicel
 author: Kevin Santiago Hernández
-img: img_credit_catalog_samicel.webp
-description: Catálogo web estático desarrollado en 2025 para Samicel, que presenta la oferta de celulares disponibles a crédito. La plataforma permite a los clientes explorar diferentes modelos de dispositivos móviles con información detallada sobre características técnicas, planes de financiamiento, cuotas mensuales y entidades financieras asociadas.
+img: PERSON.webp
+description: La plataforma permite a los clientes explorar diferentes modelos de dispositivos móviles con información detallada sobre características técnicas, cuotas mensuales y entidades financieras asociadas.
 link:
   page: https://catalog-samicel.netlify.app/
   repo: https://github.com/Kent-Probe/catalog_of_products_on_credit

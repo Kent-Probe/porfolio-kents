@@ -1,10 +1,10 @@
 ---
 title: Jeans Coffee
 author: Kevin Santiago Hernández
-img: img_jeans_coffee.webp
-description: Plataforma web de comercio electrónico desarrollada en 2021 como proyecto personal. Esta aplicación simula un marketplace especializado en productos gastronómicos y café, ofreciendo una experiencia de compra similar a plataformas de e-commerce populares pero enfocada en el sector alimentario. El proyecto representa una reinterpretación personal y no tiene relación alguna con la empresa Gloria Jeans Coffee.
+img: PERSON.webp
+description: Esta aplicación simula un marketplace especializado en productos gastronómicos y café, ofreciendo una experiencia de compra similar a plataformas de e-commerce populares pero enfocada en el sector alimentario.
 link:
-  page: no disponible
+  page:
   repo: https://github.com/Kent-Probe/Plataforma_Jeans_Coffee
 technologies:
   - Python

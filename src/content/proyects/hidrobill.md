@@ -1,11 +1,11 @@
 ---
 title: Hidrobill
 author: Kevin Santiago Hernández
-img: hidrobill.webp
-description: Sistema de gestión de pagos desarrollado en 2025 para el Acueducto Comunitario Caribayona en Casanare. Esta aplicación de escritorio automatiza la administración de clientes, contratos, propiedades y facturación del servicio de agua potable, optimizando el trabajo del encargado de recaudos y eliminando los procesos manuales de generación de recibos de pago.
+img: PERSON.webp
+description: Esta aplicación de escritorio automatiza la administración de clientes, contratos, propiedades y facturación del servicio de agua potable, optimizando el trabajo del encargado de recaudos y eliminando los procesos manuales de generación de recibos de pago.
 link:
-  page: no disponible
-  repo: www.github.com/Kent_probe/hidrobill
+  page:
+  repo: https://github.com/Kent-Probe/hidrobill
 technologies:
   - Tauri v2
   - Vue
