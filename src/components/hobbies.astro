@@ -1,0 +1,22 @@
+---
+import { BookMarked, Code, Gamepad2, Guitar, Music } from "@lucide/astro";
+
+export interface Props {
+  icon: "reading" | "coding" | "music" | "guitar";
+  size?: number;
+}
+
+const { icon, size = 24 } = Astro.props;
+
+const icons = {
+  reading: BookMarked,
+  coding: Code,
+  music: Music,
+  guitar: Guitar,
+  gaming: Gamepad2,
+};
+
+const IconComponent = icons[icon];
+---
+
+{IconComponent && <IconComponent size={size} />}

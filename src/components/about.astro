@@ -1,10 +1,37 @@
 ---
+import { BookMarked, Code, Gamepad2, Music } from "@lucide/astro";
 import element from "../assets/element.svg";
-import { hobbies } from "../content/_about/hobbies.ts";
 
 const dateBorn = new Date("2003-02-03");
 const currentDate = new Date();
 const age = currentDate.getFullYear() - dateBorn.getFullYear();
+
+const hobbies = [
+  {
+    name: "Música",
+    description: "Disfruto escuchar una variedad de géneros musicales, desde rock hasta música electrónica.",
+    icon: Music,
+  },
+  {
+    name: "Leer",
+    description: "Soy un ávido lector de libros de ciencia ficción y tecnología.",
+    icon: BookMarked,
+  },
+  {
+    name: "Programar",
+    description: "Me encanta crear proyectos personales.",
+    icon: Code,
+  },
+  {
+    name: "Juegos",
+    description: "Disfruto jugar videojuegos en mi tiempo libre, especialmente juegos de estrategia y aventuras.",
+    icon: Gamepad2,
+  },
+];
+
+/* 
+Guitar
+*/
 ---
 
 <div class="max-w-[1000px] m-auto text-white space-y-8 flex flex-col items-start justify-center gap-5">
@@ -48,7 +75,9 @@ const age = currentDate.getFullYear() - dateBorn.getFullYear();
         {
           hobbies.map((hobby) => (
             <li>
-              <span class="label">{hobby.icon}</span>
+              <span class="label">
+                <hobby.icon size={30} />
+              </span>
               <span class="value">{hobby.name}</span>
             </li>
           ))
