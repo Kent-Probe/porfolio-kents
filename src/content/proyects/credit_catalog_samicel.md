@@ -1,7 +1,7 @@
 ---
 title: Catálogo de Crédito Samicel
 author: Kevin Santiago Hernández
-img: PERSON.webp
+img: src/assets/imgs/catalogo_de_samicel.webp
 description: La plataforma permite a los clientes explorar diferentes modelos de dispositivos móviles con información detallada sobre características técnicas, cuotas mensuales y entidades financieras asociadas.
 link:
   page: https://catalog-samicel.netlify.app/

@@ -4,7 +4,9 @@
 /* @plugin "@tailwindcss/line-clamp"; */
 /* @plugin "@tailwindcss/aspect-ratio"; */
 /* @plugin "@tailwindcss/container-queries"; */
+/* 
 
+*/
 @theme {
   --shadow-neon:
     0 0 5px var(--color-accent), 0 0 10px var(--color-accent),
