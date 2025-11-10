@@ -1,7 +1,7 @@
 ---
 title: Samicel
 author: Kevin Santiago Hernández
-img: src/assets/imgs/login_samicel.webp
+img: src/assets/imgs/proyects/login_samicel.webp
 description: Esta solución aborda los desafíos específicos de control de stock y administración comercial, proporcionando seguimiento detallado de múltiples locales, gestión de bodegas, control de ventas, sistema de abonos y administración de gastos operativos.
 link:
   page:

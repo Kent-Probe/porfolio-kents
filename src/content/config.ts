@@ -16,4 +16,17 @@ const proyects = defineCollection({
   }),
 });
 
-export const collections = { proyects };
+const education = defineCollection({
+  schema: z.object({
+    title: z.string().min(2).max(100),
+    institution: z.string().min(2).max(100),
+    degree: z.string().min(2).max(100),
+    initialDate: z.string().min(4).max(20),
+    endDate: z.string().min(4).max(20).nullable(),
+    description: z.string().max(1000),
+    link: z.string().url().nullable(),
+    imgs: z.array(z.string()).min(1).max(10).nullable(),
+  }),
+});
+
+export const collections = { proyects, education };

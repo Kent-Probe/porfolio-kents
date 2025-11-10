@@ -1,7 +1,7 @@
 ---
 title: Hidrobill
 author: Kevin Santiago Hernández
-img: src/assets/imgs/clients_hidrobill.webp
+img: src/assets/imgs/proyects/clients_hidrobill.webp
 description: Esta aplicación de escritorio automatiza la administración de clientes, contratos, propiedades y facturación del servicio de agua potable, optimizando el trabajo del encargado de recaudos y eliminando los procesos manuales de generación de recibos de pago.
 link:
   page:

@@ -1,6 +1,17 @@
 ---
-// TODO: Add educations and certificates content by md files
+import { getCollection } from "astro:content";
+
 // TODO: Add filter for educations and certificates (official and non-official) styles
+
+const education = await getCollection("education");
+const certificates = education.flatMap(
+  (edu) =>
+    edu.data.imgs?.map((img) => ({
+      url: img,
+      title: edu.data.title,
+      description: edu.data.description,
+    })) || []
+);
 ---
 
 <div class="max-w-[1000px] m-auto flex flex-col gap-10">
@@ -8,73 +19,20 @@
     <div class="h-[400px] bg-bg-primary flex-1 overflow-y-auto p-6 rounded-lg">
       <div class="w-full max-w-3xl mx-auto">
         <div class="-my-6">
-          <div class="relative pl-8 sm:pl-32 py-6 group">
-            <div class="font-medium text-accent-2 mb-1 sm:mb-0">The origin</div>
-            <div
-              class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-accent-3 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5"
-            >
-              <time
-                class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-accent-2 bg-bg-secondary rounded-full"
-                >May, 2020</time
-              >
-              <div class="text-xl font-bold text-accent">Acme was founded in Milan, Italy</div>
-            </div>
-            <div class="text-white/80">
-              Pretium lectus quam id leo. Urna et pharetra pharetra massa massa. Adipiscing enim eu neque aliquam
-              vestibulum morbi blandit cursus risus.
-            </div>
-          </div>
-
-          <div class="relative pl-8 sm:pl-32 py-6 group">
-            <div class="font-medium text-accent-2 mb-1 sm:mb-0">The milestone</div>
-            <div
-              class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-accent-3 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5"
-            >
-              <time
-                class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-accent-2 bg-bg-secondary rounded-full"
-                >May, 2021</time
-              >
-              <div class="text-xl font-bold text-accent">Reached 5K customers</div>
-            </div>
-            <div class="text-white/80">
-              Pretium lectus quam id leo. Urna et pharetra pharetra massa massa. Adipiscing enim eu neque aliquam
-              vestibulum morbi blandit cursus risus.
-            </div>
-          </div>
-
-          <div class="relative pl-8 sm:pl-32 py-6 group">
-            <div class="font-medium text-accent-2 mb-1 sm:mb-0">The acquisitions</div>
-            <div
-              class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-accent-3 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5"
-            >
-              <time
-                class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-accent-2 bg-bg-secondary rounded-full"
-                >May, 2022</time
-              >
-              <div class="text-xl font-bold text-accent">Acquired various companies, inluding Technology Inc.</div>
-            </div>
-            <div class="text-white/80">
-              Pretium lectus quam id leo. Urna et pharetra pharetra massa massa. Adipiscing enim eu neque aliquam
-              vestibulum morbi blandit cursus risus.
-            </div>
-          </div>
-
-          <div class="relative pl-8 sm:pl-32 py-6 group">
-            <div class="font-medium text-accent-2 mb-1 sm:mb-0">The IPO</div>
-            <div
-              class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-accent-3 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5"
-            >
-              <time
-                class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-accent-2 bg-bg-secondary rounded-full"
-                >May, 2023</time
-              >
-              <div class="text-xl font-bold text-accent">Acme went public at the New York Stock Exchange</div>
-            </div>
-            <div class="text-white/80">
-              Pretium lectus quam id leo. Urna et pharetra pharetra massa massa. Adipiscing enim eu neque aliquam
-              vestibulum morbi blandit cursus risus.
-            </div>
-          </div>
+          {
+            education.map((edu) => (
+              <div class="relative pl-8 sm:pl-12 py-6 group">
+                <div class="font-medium text-accent-3 mb-1 sm:mb-0">{edu.data.title}</div>
+                <div class="flex flex-col items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[1rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-accent-3 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[1rem] after:-translate-x-1/2 after:translate-y-1.5 ">
+                  <p aria-label="time" class="text-xs font-semibold uppercase w-full text-slate-300">
+                    {edu.data.initialDate} - {edu.data.endDate}
+                  </p>
+                  <div class="text-xl font-bold text-accent">{edu.data.institution}</div>
+                </div>
+                <div class="text-white/80">{edu.data.description}</div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -84,14 +42,14 @@
         class="h-full w-full flex flex-row overflow-x-auto overflow-y-hidden p-5 items-center gap-3 scrollbar-thin scrollbar-thumb-accent scrollbar-track-bg-secondary"
       >
         {
-          [1, 2, 3, 4, 5].map((i) => (
+          certificates.map((i) => (
             <div class="flex-none">
               <img
                 width="200"
                 height="300"
-                src={`https://placehold.co/200x300`}
-                alt={`Certificado ${i}`}
-                class="rounded-md w-[200px] h-[300px] object-cover shadow-lg hover:shadow-xl transition-shadow duration-300"
+                src={i.url}
+                alt={`${i.title} - Certificado`}
+                class="rounded-md w-[200px] h-[300px] object-cover shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden bg-white"
               />
             </div>
           ))
@@ -99,7 +57,7 @@
       </div>
     </div>
   </div>
-  <div class="w-full bg-bg-primary rounded-lg">
+  <!-- <div class="w-full bg-bg-primary rounded-lg">
     <div class="radio-group">
       <input type="radio" name="plan" id="all" checked="" />
       <label for="all">Todos</label>
@@ -112,7 +70,7 @@
 
       <div class="slider-element"></div>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <style>
