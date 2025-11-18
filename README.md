@@ -1,46 +1,65 @@
-# Astro Starter Kit: Basics
+# 🌟 Kents.dev - Personal Portfolio
 
-```sh
-bun create astro@latest -- --template basics
+Welcome to my personal portfolio website! This project showcases my skills, projects, and professional journey as a developer.
+
+## 🚀 About
+
+This is the source code for my personal portfolio website hosted at [kents.dev](https://kents.dev). The site features a modern, responsive design that highlights my work and technical expertise.
+
+## ✨ Features
+
+- **Responsive Design** - Optimized for all devices
+- **Project Showcase** - Interactive portfolio gallery
+- **About Section** - Professional background and skills
+- **Contact Form** - Easy way to get in touch
+- **Blog/Articles** - Technical writing and insights
+- **Dark/Light Mode** - User preference theme switching
+
+## 🛠️ Technologies Used
+
+- Frontend Framework (React/Vue/Angular)
+- CSS/Styling (Tailwind/SCSS/CSS-in-JS)
+- Build Tool (Vite/Webpack)
+- Hosting (Vercel/Netlify)
+
+## 📁 Project Structure
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
+portafolio/
+├── src/
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── components/
+├── assets/
+└── README.md
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Getting Started
 
-## 🧞 Commands
+1. Clone the repository
 
-All commands are run from the root of the project, from a terminal:
+```bash
+git clone https://github.com/yourusername/portfolio-kents.git
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+2. Install dependencies
 
-## 👀 Want to learn more?
+```bash
+npm install
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+3. Start development server
+
+```bash
+npm run dev
+```
+
+## 📫 Contact
+
+- Website: [kents.dev](https://kents.dev)
+- Email: kenvinshe01@gmail.com
+- LinkedIn: [LinkedIn]
+- GitHub: [GitHub]
+
+---
+
+Made with ❤️ by Kents

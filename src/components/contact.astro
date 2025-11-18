@@ -62,7 +62,7 @@ import { Github, Linkedin, MailIcon, PhoneCall } from "@lucide/astro";
   </div>
   <div class="flex relative md:p-5 md:pr-36 md:pb-0 md:w-3/5 w-full p-0">
     <div class="bg-bg-primary absolute -left-50 md:-left-20 -bottom-20 -top-20 w-[1500px] -z-10"></div>
-    <form action="" class="flex flex-col gap-5 justify-center items-start w-full">
+    <form class="flex flex-col gap-5 justify-center items-start w-full">
       <div class="flex w-full flex-col">
         <label class="block uppercase tracking-wide text-accent text-xs font-bold mb-2" for="name">Nombre:</label>
         <input
@@ -70,6 +70,8 @@ import { Github, Linkedin, MailIcon, PhoneCall } from "@lucide/astro";
           type="text"
           id="name"
           name="name"
+          min="2"
+          max="100"
           required
         />
       </div>
@@ -101,6 +103,7 @@ import { Github, Linkedin, MailIcon, PhoneCall } from "@lucide/astro";
       </div>
       <div class="flex w-full flex-col">
         <button
+          id="submit-button"
           class="bg-accent text-white p-2 rounded-md hover:bg-accent/80 transition-all ease-in-out duration-300 cursor-pointer"
           type="submit">Enviar</button
         >
@@ -109,9 +112,99 @@ import { Github, Linkedin, MailIcon, PhoneCall } from "@lucide/astro";
   </div>
 </div>
 
+<script>
+  import { actions, isInputError } from "astro:actions";
+  import Toastify from "toastify-js";
+
+  const form = document.querySelector("form");
+  const submitBtn = document.getElementById("submit-button") as HTMLButtonElement;
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    // Estado de carga
+    submitBtn.textContent = "Enviando...";
+    submitBtn.style.pointerEvents = "none";
+    submitBtn.style.cursor = "not-allowed";
+    submitBtn.style.opacity = "0.6";
+    submitBtn.disabled = true;
+
+    try {
+      const formData = new FormData(form);
+      const { data, error } = await actions.send(formData);
+
+      if (error) {
+        if (isInputError(error)) {
+          // Errores de validación de entrada
+          const messages = error.fields.email
+            ? [error.fields.email]
+            : error.fields.name
+              ? [error.fields.name]
+              : error.fields.message
+                ? [error.fields.message]
+                : ["Entrada inválida."];
+
+          Toastify({
+            text: "Errores de validación: " + messages.join(", "),
+            duration: 4000,
+            gravity: "top",
+            position: "right",
+            style: {
+              background: "linear-gradient(to right, #730d0d, #8a0606)",
+            },
+          }).showToast();
+          return;
+        }
+
+        Toastify({
+          text: "Error: " + error.message,
+          duration: 4000,
+          gravity: "top",
+          position: "right",
+          style: {
+            background: "linear-gradient(to right, #730d0d, #8a0606)",
+          },
+        }).showToast();
+        return;
+      }
+
+      // Éxito
+      Toastify({
+        text: "¡Mensaje enviado correctamente! 🎉",
+        duration: 4000,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "linear-gradient(to right, #8a0606, #730d0d)",
+        },
+      }).showToast();
+
+      form.reset();
+    } catch (err) {
+      Toastify({
+        text: "Error enviando el mensaje. Inténtalo de nuevo.",
+        duration: 4000,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "linear-gradient(to right, #730d0d, #8a0606)",
+          s,
+        },
+      }).showToast();
+    } finally {
+      submitBtn.textContent = "Enviar";
+      submitBtn.style.pointerEvents = "auto";
+      submitBtn.style.cursor = "pointer";
+      submitBtn.style.opacity = "1";
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+
 <style>
   .data-socials {
     display: flex;
+    background-color: #;
     flex-wrap: wrap;
     gap: 10px 20px;
     width: 400px;
