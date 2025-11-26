@@ -3,8 +3,9 @@
 // TODO: Add circle background for skill logos
 // TODO: Add hover effects for skill items
 
+import { XIcon } from "@lucide/astro";
 import { skills } from "../content/_skills/skills";
-const hardSkills = ["Databases", "Languages", "Frameworks", "Tools"];
+const hardSkills = ["Databases", "Languages", "Tools", "Frameworks"];
 ---
 
 <div class="max-w-[1000px] m-auto">
@@ -14,53 +15,174 @@ const hardSkills = ["Databases", "Languages", "Frameworks", "Tools"];
   </div>
   <div class="grid md:grid-cols-2 grid-cols-1 gap-8 text-white">
     <div
-      class="relative h-[200px] bg-primary/50 p-4 border-bg-primary rounded-lg flex items-center justify-center flex-col cursor-pointer group"
+      id="hard-skills-card"
+      class="h-[200px] bg-gradient-to-br from-red-600/30 to-rose-600/30 p-4 border-2 border-red-400/50 rounded-xl flex items-center justify-center flex-col cursor-pointer group shadow-lg hover:shadow-red-500/30 transition-all duration-300"
     >
-      <h3 class="text-3xl">Habilidades Duras</h3>
-      <div
-        class="grid absolute -left-10 -right-full z-20 grid-cols-2 bg-bg-primary p-4 border-accent-3/80 border-neon opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
+      <h3 class="text-3xl font-bold text-red-200 group-hover:text-white transition-colors">Habilidades Duras</h3>
+      <div class="text-red-300 text-sm mt-2">Click para ver detalles</div>
+
+      <!-- Dialog para Hard Skills -->
+      <dialog
+        id="hard-skills-dialog"
+        class="dialog-backdrop backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-transparent border-none p-0 max-w-none max-h-none w-full h-full"
       >
-        {
-          hardSkills.map((category) => (
-            <div key={category}>
-              <h4>{category}</h4>
-              <ul class="grid grid-cols-2 gap-4">
-                {skills.hard[category.toLowerCase()].map((skill) => (
-                  <li class="flex flex-col max-w-[300px] justify-start content-start" key={skill.name}>
-                    <div class="">
-                      <img
-                        class="drop-shadow-lg drop-shadow-accent-3/60"
-                        width="40"
-                        height="40"
-                        src={skill.logo.src}
-                        alt={skill.name}
-                      />
-                      <span>{skill.name}</span>
+        <!-- Backdrop -->
+        <div class="dialog-backdrop-overlay min-h-screen flex items-center justify-center p-4" id="dialog-overlay">
+          <div
+            class="dialog-content bg-gradient-to-br from-gray-900 to-gray-800 p-6 border-2 border-red-400/50 rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-auto relative"
+            id="dialog-content"
+          >
+            <button
+              id="close-hard-skills-button"
+              type="button"
+              class="absolute top-4 right-4 w-10 h-10 bg-red-500/20 hover:bg-red-500/40 border border-red-400/50 rounded-full flex items-center justify-center text-red-300 hover:text-white transition-all duration-300 z-10 backdrop-blur-sm cursor-pointer"
+              aria-label="Cerrar"
+            >
+              <XIcon class="w-6 h-6" />
+            </button>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+              {
+                hardSkills.map((category) => (
+                  <div key={category} class="skill-category">
+                    <h4 class="text-xl font-bold text-red-300 mb-4 border-b border-red-400/30 pb-2">{category}</h4>
+                    <div class="grid gap-3">
+                      {skills.hard[category.toLowerCase()].map((skill) => (
+                        <div
+                          class="skill-card bg-gradient-to-r from-red-900/40 to-rose-900/40 border border-red-400/30 rounded-lg p-3 hover:border-red-400/70 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/20"
+                          key={skill.name}
+                        >
+                          <div class="flex items-center gap-3 mb-2">
+                            <div class="skill-icon-container bg-gray-800 p-2 rounded-full border border-red-400/30">
+                              <img class="skill-icon" width="24" height="24" src={skill.logo.src} alt={skill.name} />
+                            </div>
+                            <span class="font-semibold text-red-200">{skill.name}</span>
+                          </div>
+                          <div class="skill-progress-container">
+                            <div class="bg-gray-700 h-2 rounded-full border border-red-400/20">
+                              <div
+                                class="skill-progress bg-gradient-to-r from-red-500 to-rose-500 h-2 rounded-full shadow-lg"
+                                style={`width: ${skill.porcentage}%`}
+                              />
+                            </div>
+                            <span class="text-xs text-red-300 mt-1 block text-right">{skill.porcentage}%</span>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                    <div class="bg-accent/20 h-2 border-accent w-full">
-                      <span class="bg-accent h-2 block" style={`width: ${skill.porcentage}%`} />
-                    </div>
-                  </li>
-                ))}
-              </ul>
+                  </div>
+                ))
+              }
             </div>
-          ))
-        }
-      </div>
+          </div>
+        </div>
+      </dialog>
     </div>
+
+    <!-- Soft Skills Card -->
     <div
-      class="relative h-[200px] bg-primary/50 p-4 border-bg-primary rounded-lg flex items-center justify-center flex-col cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out group"
-      group
+      id="soft-skills-card"
+      class="relative h-[200px] bg-gradient-to-br from-pink-600/30 to-red-600/30 p-4 border-2 border-pink-400/50 rounded-xl flex items-center justify-center flex-col cursor-pointer group shadow-lg hover:shadow-pink-500/30 transition-all duration-300"
     >
-      <h3 class="text-3xl group-hover:scale-110 transition-transform duration-300 ease-in-out">Habilidades Blandas</h3>
-      <div class="hidden absolute bg-bg-primary p-4 border-bg-primary/80 group-hover:block">
-        <ul>
-          {skills.soft.map((skill) => <li key={skill}>{skill.name}</li>)}
-        </ul>
+      <h3 class="text-3xl font-bold text-pink-200 group-hover:text-white transition-colors">Habilidades Blandas</h3>
+      <div class="text-pink-300 text-sm mt-2">Click para ver detalles</div>
+      <div
+        id="soft-skills"
+        class="hidden absolute top-full left-0 right-0 z-20 mt-4 bg-gradient-to-br from-gray-900 to-gray-800 p-6 border-2 border-pink-400/50 rounded-xl shadow-2xl"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {
+            skills.soft.map((skill) => (
+              <div
+                class="skill-card bg-gradient-to-r from-pink-900/40 to-red-900/40 border border-pink-400/30 rounded-lg p-4 hover:border-pink-400/70 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20"
+                key={skill}
+              >
+                <div class="flex items-center gap-3">
+                  <div class="w-3 h-3 bg-gradient-to-r from-pink-400 to-red-400 rounded-full shadow-lg" />
+                  <span class="font-semibold text-pink-200">{skill.name}</span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hardSkillsCard = document.getElementById("hard-skills-card");
+    const hardSkillsDialog = document.getElementById("hard-skills-dialog") as HTMLDialogElement;
+    const closeButton = document.getElementById("close-hard-skills-button");
+    const dialogOverlay = document.getElementById("dialog-overlay");
+    const dialogContent = document.getElementById("dialog-content");
+
+    //  Abrir dialog
+    hardSkillsCard?.addEventListener("click", (e) => {
+      e.preventDefault();
+      hardSkillsDialog?.showModal();
+      document.body.style.overflow = "hidden"; // Prevenir scroll
+    });
+
+    // Cerrar con botón - Múltiples métodos
+    closeButton?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeDialog();
+    });
+
+    // Cerrar clickeando en el overlay (backdrop)
+    dialogOverlay?.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("Overlay clicked, target:", e.target);
+      // Cerrar si se clickea exactamente el overlay, no el contenido
+      if (e.target === dialogOverlay) {
+        console.log("Closing via overlay click");
+        closeDialog();
+      }
+    });
+
+    // Prevenir cierre cuando se clickea el contenido
+    dialogContent?.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+
+    // Función de cerrar centralizada
+    function closeDialog() {
+      if (hardSkillsDialog && hardSkillsDialog.open) {
+        hardSkillsDialog.close();
+        document.body.style.overflow = ""; // Restaurar scroll
+        console.log("Dialog closed successfully");
+      }
+    }
+
+    // Cerrar con ESC
+    // document.addEventListener("keydown", (e) => {
+    //   if (e.key === "Escape" && hardSkillsDialog?.open) {
+    //     console.log("Closing via ESC key");
+    //     closeDialog();
+    //   }
+    // });
+
+    // Soft skills
+    const softSkillsCard = document.getElementById("soft-skills-card");
+    const softSkillsDiv = document.getElementById("soft-skills");
+
+    softSkillsCard?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      softSkillsDiv?.classList.toggle("hidden");
+    });
+
+    // Cerrar soft skills al hacer click fuera
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest("#soft-skills-card") && !target.closest("#soft-skills")) {
+        softSkillsDiv?.classList.add("hidden");
+      }
+    });
+  });
+</script>
 
 <style>
   ul {
@@ -69,14 +191,97 @@ const hardSkills = ["Databases", "Languages", "Frameworks", "Tools"];
     margin: 0;
   }
 
-  li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
+  .skill-card {
+    transform: translateY(0);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+
+      & .skill-icon-container {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(220, 38, 127, 0.4);
+      }
+    }
+
+    & .skill-icon-container {
+      transition: all 0.3s ease;
+
+      & > .skill-icon {
+        border-radius: 4px;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+      }
+    }
+    & .skill-progress {
+      transition: width 0.8s ease-in-out;
+      box-shadow: 0 0 10px rgba(220, 38, 127, 0.5);
+    }
   }
 
-  img {
-    border-radius: 8px;
+  .skill-category h4 {
+    text-shadow: 0 0 10px rgba(220, 38, 127, 0.3);
+  }
+
+  /* ========== DIALOG ========== */
+  .dialog-backdrop {
+    opacity: 0;
+    scale: 0;
+    transition:
+      opacity 0.3s ease,
+      scale 0.3s ease,
+      display 0.3s ease-in-out allow-discrete;
+  }
+
+  .dialog-backdrop[open] {
+    transition:
+      opacity 0.3s ease,
+      scale 0.3s ease;
+    opacity: 1;
+    scale: 1;
+
+    @starting-style {
+      opacity: 0;
+      scale: 0;
+    }
+  }
+
+  .dialog-content {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition:
+      opacity 0.4s ease-out,
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .dialog-backdrop[open] .dialog-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  @starting-style {
+    .dialog-backdrop[open] .dialog-content {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+  }
+
+  /* Backdrop */
+  .dialog-backdrop::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    transition:
+      background-color 0.3s ease-out,
+      backdrop-filter 0.3s ease-out,
+      display 0.3s ease-in-out allow-discrete;
+  }
+
+  .dialog-backdrop[open]::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+
+    @starting-style {
+      background-color: rgba(0, 0, 0, 0);
+      backdrop-filter: blur(0px);
+    }
   }
 </style>
